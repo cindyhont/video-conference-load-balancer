@@ -1,6 +1,6 @@
 export interface Ichatrooms {
     [roomID:string]:{
-        openTime:number;
+        lastActiveTime:number;
         clientCount:number;
         serverHost?:string;
     }
@@ -27,7 +27,6 @@ export interface IdeleteClient {
     type:'deleteClient';
     payload:{
         roomID:string;
-        deleteRoom:boolean;
     }
 }
 

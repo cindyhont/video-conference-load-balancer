@@ -1,7 +1,7 @@
 import { ServerResponse } from "http"
-import { Ichatrooms } from "../interfaces"
+import { chatRooms } from "../rooms"
 
-const openNewRoomGetHost = (chatRooms:Ichatrooms,servers:string[],res:ServerResponse,roomID:string | null) => {
+const openNewRoomGetHost = (servers:string[],res:ServerResponse,roomID:string | null) => {
     if (!roomID) return
 
     if (servers.length === 1) {

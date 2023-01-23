@@ -1,18 +1,15 @@
 import { ServerResponse } from "http";
-import { Ichatrooms } from "../interfaces";
 import { v4 as uuidv4 } from 'uuid'
+import { chatRooms, createRoom } from "../rooms";
 
-const createRoomLink = (res:ServerResponse, chatRooms:Ichatrooms) => {
+const createRoomLink = (res:ServerResponse) => {
     let id = uuidv4()
 
     while (id in chatRooms){
         id = uuidv4()
     }
 
-    chatRooms[id] = {
-        openTime:Date.now(),
-        clientCount: 0,
-    }
+    createRoom(id)
 
     res.end(JSON.stringify({id}))
 }
